@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form 1</title>
+    <link rel="stylesheet" href="./validation.css">
+</head>
+
+<body
+    style="background-image: url('photo.jpg');  background-repeat: no-repeat;background-attachment: fixed; background-size: cover;">
+    <div class="container">
+        <form id="form" onsubmit="fillform()">
+            <h1>Registration Validation </h1>
+
+            <div class="input-control">
+
+                <label for="username"><img src="user-2.svg" alt="" class="userIcon"> <b>User Name</b><span class="star">*
+                    </span> </label>
+                <input type="text" id="user" onkeyup="userName()" placeholder="Enter username" required>
+
+                <span id="userna" class="textColor"></span>
+            </div>
+
+            <div class="input-control">
+                <label for="firstname"> <img src="images.png" alt="" class="userIcon"> <b>First Name</b> <span
+                        class="star">*</span> </label>
+                <input type="text" id="first" onkeyup="firstName()" placeholder="Enter first name" required>
+                <span id="firstna" class="textColor"></span>
+            </div>
+
+            <div class="input-control">
+                <label for="lastname"> <img src="download (1).png" alt="" class="userIcon"> <b>Last Name</b> <span
+                        class="star">*</span> </label>
+                <input type="text" id="last" onkeyup="lastName()" placeholder="Enter last name" minlength="4" maxlength="12" required>
+                <span id="lastna" class="textColor"></span>
+            </div>
+
+
+
+            <div class="input-control">
+
+                <label for="email"> <img src="emai.jpg" alt="" class="userIcon"> <b>Email</b> <span class="star">*</span></label>
+                <input type="text" id="email" onkeyup="validateEmail()" placeholder="Enter mail id" maxlength="40">
+                <p id="email-error" style="color: red;"></p>
+                <p id="email-success" style="color: green;"></p>
+            </div> 
+
+            <div class="input-control">
+                <label for="password"> <img src="6195699.png" alt="" class="userIcon"> <b>Password</b><span
+                        class="star">*</span></label>
+                <input onkeyup="passwordValidation()" id="password" name="password" type="password"
+                    placeholder="Enter password" required>
+                <img src="./hide-svgrepo-com.svg" alt="" class="icon" onclick="showPass()">
+                <span id="passAns" class="textColor"></span>
+            </div>
+            <br>
+            <div class="input-control">
+                <label for="password"> <b> Confirm Password </b><span class="star">*</span></label>
+                <input onkeyup="passwordValidation2()" id="password2" name="password2" type="password"
+                    placeholder="Renter password" required>
+                <img src="./hide-svgrepo-com.svg" alt="" class="icon" onclick="showPass2()">
+                <span id="passAns2" class="textColor"></span>
+            </div>
+            <br>
+
+            <div class="input-control">
+                <label for="aadharNumber"> <img src="aaadhaar.jpg" alt="" class="userIcon"> <b> Aadhar Number  </b><span class="star">*</span></label>
+                <input type="text" id="aadharNumber" onkeyup="validateAadharNumber()" placeholder="Enter 12 digit aadhar number" minlength="12"   maxlength="12"    required>
+                <span id="aadharca" class="textColor"></span>
+            </div><br>
+
+
+            <div class="input-control">
+                <label for="color"> <img src="download (3).png" alt="" class="userIcon"> <b>Color Picker</b><span
+                        class="star">*</span></label required>
+                <div style="border: 1px solid rgb(166, 141, 141);" id="img">
+                    <input id="color" name="color" type="color" onclick="colorValidation()">
+                </div>
+                <span id="colorAns" class="textColor"></span>
+            </div><br>
+
+
+            <div class="input-control">
+                <label for="date"> <img src="download (4).png" alt="" class="userIcon"><b>Date Of Birth </b> <span
+                        class="star">*</span></label>
+                <input id="date" name="date" type="date" min=" 1960-01-01" max="2012-01-31" onkeyup="dateValidation()"
+                    required>
+                <span id="dateAns" class="textColor"></span>
+            </div>
+
+            <div class="input-control">
+                <label for="numeric"> <img src="text_field.png" alt="" class="userIcon"><b>Text Field</b><span
+                        class="star">*</span></label>
+                <input id="text" name="text" type="text" onkeyup="textFieldValidation()" required>
+                <span id="textAns" class="textColor"></span>
+            </div>
+            
+            
+            
+            <div class="input-control">
+                <label for="Drop"> <b>Dropdown Country,State,City,ZipCode</b><span class="star">*</span></label required>
+                <select id="Country" size="1">
+                    <option value="" selected="selected">-- Select Country --</option>
+                </select>
+
+                <select id="State" size="1">
+                    <option value="" selected="selected">-- Select State --</option>
+                </select>
+
+                <select id="City" size="1">
+                    <option value="" selected="selected">-- Select City --</option>
+                </select>
+
+                <select id="Zip" size="1">
+                    <option value="" selected="selected">-- Select Zip --</option>
+                </select>
+            </div> <br> <br>
+
+
+
+
+            <div class="input-control">
+                <label for="numeric"> <img src="images (2).png" alt="" class="userIcon"> <b>Select language</b><span
+                        class="star">*</span></label>
+
+                <select name="language" id="language" onkeyup="language()" required>
+                    <option value="">Select language</option>
+                    <option value="English">English</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Arabic">Bhojupri</option>
+                    <option value="Russian">Russian</option>
+                </select>
+                <span id="languageAns" class="textColor"></span>
+            </div>
+            <br>
+
+
+            <div class="input-control">
+                <label for="pdf-file"> <img src="download (6).png" alt="" class="userIcon"> <b>Select a PDF file</b> <span
+                        class="star">*</span></label>
+                <input type="file" id="pdf-file" name="pdf-file" onkeyup="validatePDF()" accept=".pdf" required>
+                <p id="pdf-validation-message"></p>
+                <span id="pdfan" class="textColor"></span>
+            </div>
+
+            <div class="input-control">
+                <label for="img-file"> <img src="images (1).jpg" alt="" class="userIcon"> <b>Upload JPEG file </b><span
+                    class="star">*</span></label>
+                    <input type="file" id="file" onchange="return validateFile()" required>
+                    <span id="jpgan" class="textColor"></span> 
+            </div>
+
+            <div class="input-control">
+                <label for="account-number"> <img src="accno.png" alt="" class="userIcon"><b>Account Number</b>  <span class="star">*</span></label>
+                <input type="text1" id="account-number" name="account-number" onkeyup="validateAccountNumber()" placeholder="Enter your account number" minlength="8"   maxlength="12"  required>
+                <span id="accno" class="textColor"></span>
+            </div><br>
+
+
+
+            <div class="input-control"> <label for="address"> <img src="images (3).png" alt="" class="userIcon"><b>Address:</b> </label>
+                <input type="text" id="address" name="address" onkeyup="validateAddress()" minlength="10" maxlength="50"
+                    required>
+                <span id="addressError"></span>
+                <br>
+            </div>
+            <div class="input-control">
+                <label for="country-select"> <img src="images (country).jpg" alt="" class="userIcon"><b>Select your country:</b></label>
+                <select id="country-select">
+                    <option value="">--Please select a country--</option>
+                    <option value="us">United States</option>
+                    <option value="india">India</option>
+                    <option value="china">China</option>
+                    <option value="uae">UAE</option>
+                </select><br>
+                <label for="phone-input"> <img src="images (phone).png" alt="" class="userIcon"> <b>Enter your phone number:</b></label>
+                <input type="text" id="code-input" name="code" readonly>
+                <input type="tel" id="phone-input" name="phone" >
+                <span id="phno" class="textColor"></span>
+
+            </div>
+
+
+
+            <div class="" onkeyup="genderCheck()">
+                <label for="numeric"> <img src="images (gender).png" alt="" class="userIcon"><b>Select Gender</b><span
+                        class="star">*</span></label required>
+                <br>
+                <span>Female</span>
+
+                <input type="radio" name="gender" required>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <span>Male</span>
+                <input type="radio" name="gender" required>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <span>Other</span>
+                <input type="radio" name="gender" required>
+            </div>
+            <br>
+            <div id="sectionForm" method="post">
+                <h3></h3>
+                <label for="numeric"> <img src="images (select).png" alt="" class="userIcon"><b>Please select at least one item</b> <span class="star">*</span></label required>
+                <br>
+                Sports: <input type="checkbox" name="section" value="sports"> &nbsp;
+                Music: <input type="checkbox" name="section" value="business"> &nbsp;
+                Health: <input type="checkbox" name="section" value="health"> &nbsp;
+                Cooking: <input type="checkbox" name="section" value="cooking"> &nbsp;
+                Society: <input type="checkbox" name="section" value="society"> &nbsp;
+
+            </div><br>
+
+            <div class="input-control">
+                <label for="mart"> <img src="marri.jpg" alt="" class="userIcon"> <b>Marital status </b><span
+                        class="star">*</span></label>
+
+                <select name="marital" id="marital" onkeyup="martial()" required>
+                    <option value="">Select marital status</option>
+                    <option value="Married">Married</option>
+                    <option value="Single">Single</option>
+                    <option value="never married">never married</option>
+                    <option value="separated">separated</option>
+                    <option value="divorced">divorced</option>
+                </select>
+                <span id="marts" class="textColor"></span>
+            </div>
+            <br>
+            <br>
+            <div class="input-control">
+                <label for="confirmation">I confirm that the above mentioned information provided by myself is  accurate and correct .Company is not responsible for any wrong submitted data  .</label>
+                <input type="checkbox" id="confirmation" name="confirmation"  required>
+           
+
+            </div>
+            
+
+            
+            
+
+
+            <button><b>Submit</b></button>
+
+        </form>
+    </div>
+
+    <script src="./validation.js"></script>
+</body>
+
+</html>
